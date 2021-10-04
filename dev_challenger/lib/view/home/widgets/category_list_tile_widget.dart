@@ -29,7 +29,7 @@ class CategoryListTile extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: Colors.green[400],
+        color: Color(0xFF4ECDC4),
         borderRadius: BorderRadius.circular(15),
       ),
       margin: margin,

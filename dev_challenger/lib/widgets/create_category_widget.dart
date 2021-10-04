@@ -43,7 +43,7 @@ class CreateCategoryWidget extends StatelessWidget {
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black, width: 3),
+                  borderSide: BorderSide(color: Colors.black, width: 0.5),
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),
@@ -51,32 +51,42 @@ class CreateCategoryWidget extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Text('Icon'),
+            Text('Tipo'),
             SizedBox(
               height: 5,
             ),
             Obx(() {
-              return DropdownButton(
-                value: dropdownValue.value,
-                onChanged: (value) {
-                  dropdownValue.value = value as Category?;
-                },
-                items: _homecontroller.categoryTotal
-                    .toList()
-                    .map<DropdownMenuItem<Category>>(
-                  (Category value) {
-                    return DropdownMenuItem(
-                      child: Text(
-                        value.names,
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                      value: value,
-                    );
+              return Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    width: 0.5,
+                    //style: ButtonStyle.
+                  ),
+                ),
+                child: DropdownButton(
+                  value: dropdownValue.value,
+                  onChanged: (value) {
+                    dropdownValue.value = value as Category?;
                   },
-                ).toList(),
-                isExpanded: true,
+                  items: _homecontroller.categoryTotal
+                      .toList()
+                      .map<DropdownMenuItem<Category>>(
+                    (Category value) {
+                      return DropdownMenuItem(
+                        child: Text(
+                          value.names,
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        value: value,
+                      );
+                    },
+                  ).toList(),
+                  isExpanded: true,
+                ),
               );
             }),
             const Spacer(),

@@ -9,30 +9,46 @@ class ExpensesListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Row(
-        children: [
-          Icon(Icons.money, size: 40, color: Colors.green[500],),
-          SizedBox(
-            width: 15,
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            
+            border: Border(right: BorderSide(width: 8, color: Color(0xFF292F36))),
+            //borderRadius: BorderRadius.only(),
+            //border: Border.all(width: 0.5),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Text('${expense.name}'), Text(expense.category)],
-          ),
-          Spacer(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
             children: [
-              Text('${expense.value}'),
-              Text(DateFormat.yMMMd().format(expense.date))
+              Icon(
+                Icons.money,
+                size: 40,
+                color: Color(0xFF292F36),
+              ),
+              SizedBox(
+                width: 15,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [Text('${expense.name}'), Text(expense.category)],
+              ),
+              Spacer(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('${expense.value}'),
+                  Text(DateFormat.yMMMd().format(expense.date))
+                ],
+              ),
             ],
           ),
-        ],
-      ),
+        ),
+        const Divider(
+          height: 0.8,
+          color: Colors.black,
+        ),
+      ],
     );
   }
 }

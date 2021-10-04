@@ -21,11 +21,10 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.green[400],
+        backgroundColor: Color(0xFF292F36),
         elevation: 0,
         title: const Text(
-          'Despesas', style: TextStyle(fontSize: 30),
+          'Despesas', style: TextStyle(fontSize: 20),
         ),
       ),
       body: SingleChildScrollView(
@@ -63,7 +62,7 @@ class HomePage extends GetView<HomeController> {
                                   },
                                 );
                               },
-                              icon: const Icon(Icons.add),
+                              icon: const Icon(Icons.add,),
                             ),
                           ],
                         ),
@@ -209,7 +208,7 @@ class HomePage extends GetView<HomeController> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xFF4ECDC4),
         onPressed: () async {
           await ModalSheet.elegantBottonSheet(
             context: context,

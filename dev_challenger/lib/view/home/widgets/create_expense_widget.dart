@@ -44,7 +44,7 @@ class CreateExpenseWidget extends StatelessWidget {
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Colors.black,
-                    width: 3,
+                    width: 0.5,
                   ),
                   borderRadius: BorderRadius.circular(15),
                 ),
@@ -58,27 +58,34 @@ class CreateExpenseWidget extends StatelessWidget {
               height: 5,
             ),
             Obx(() {
-              return DropdownButton(
-                value: dropdownValue.value,
-                onChanged: (value) {
-                  dropdownValue.value = value as Category?;
-                },
-                items: controller.categoryTotal
-                    .toList()
-                    .map<DropdownMenuItem<Category>>(
-                  (Category value) {
-                    return DropdownMenuItem(
-                      child: Text(
-                        value.names,
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                      value: value,
-                    );
+              return Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 0.5),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: DropdownButton(
+                  value: dropdownValue.value,
+                  onChanged: (value) {
+                    dropdownValue.value = value as Category?;
                   },
-                ).toList(),
-                isExpanded: true,
+                  items: controller.categoryTotal
+                      .toList()
+                      .map<DropdownMenuItem<Category>>(
+                    (Category value) {
+                      return DropdownMenuItem(
+                        child: Text(
+                          value.names,
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        value: value,
+                      );
+                    },
+                  ).toList(),
+                  isExpanded: true,
+                ),
               );
             }),
             SizedBox(
@@ -107,7 +114,7 @@ class CreateExpenseWidget extends StatelessWidget {
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black, width: 3),
+                  borderSide: BorderSide(color: Colors.black, width: 0.5),
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),

@@ -1,7 +1,6 @@
 import 'package:dev_challenge/widgets/save_button.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
+
 
 class SearchExpenseWidget extends StatelessWidget {
   final TextEditingController searchNameExpenseController;
@@ -31,7 +30,7 @@ class SearchExpenseWidget extends StatelessWidget {
               style: TextStyle(color: Colors.black,),
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black, width: 3),
+                  borderSide: BorderSide(color: Colors.black, width: 0.5),
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),

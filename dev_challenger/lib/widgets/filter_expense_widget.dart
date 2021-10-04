@@ -42,7 +42,7 @@ class FilterExpenseWidget extends StatelessWidget {
                         },
                         child: Text('Data'),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.green[500],
+                          primary: Color(0xFF4ECDC4),
                           onPrimary: Colors.black,
                           minimumSize: Size(200, 100),
                         ),
@@ -55,7 +55,7 @@ class FilterExpenseWidget extends StatelessWidget {
                           },
                           child: Text('Categoria'),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.green[500],
+                            primary: Color(0xFF4ECDC4),
                             onPrimary: Colors.black,
                             minimumSize: Size(200, 100),
                           ),
@@ -89,7 +89,9 @@ class FilterExpenseWidget extends StatelessWidget {
                               DatePickerButtonWidget(),
                             ],
                           ),
-                          SizedBox(height: 20,),
+                          SizedBox(
+                            height: 20,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -127,27 +129,34 @@ class FilterExpenseWidget extends StatelessWidget {
                             height: 5,
                           ),
                           Obx(() {
-                            return DropdownButton(
-                              value: dropdownValue.value,
-                              onChanged: (value) {
-                                dropdownValue.value = value as Category?;
-                              },
-                              items: controller.categoryTotal
-                                  .toList()
-                                  .map<DropdownMenuItem<Category>>(
-                                (Category value) {
-                                  return DropdownMenuItem(
-                                    child: Text(
-                                      value.names,
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                    value: value,
-                                  );
+                            return Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              decoration: BoxDecoration(
+                                border: Border.all(width: 0.5),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: DropdownButton(
+                                value: dropdownValue.value,
+                                onChanged: (value) {
+                                  dropdownValue.value = value as Category?;
                                 },
-                              ).toList(),
-                              isExpanded: true,
+                                items: controller.categoryTotal
+                                    .toList()
+                                    .map<DropdownMenuItem<Category>>(
+                                  (Category value) {
+                                    return DropdownMenuItem(
+                                      child: Text(
+                                        value.names,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      value: value,
+                                    );
+                                  },
+                                ).toList(),
+                                isExpanded: true,
+                              ),
                             );
                           }),
                           Row(
